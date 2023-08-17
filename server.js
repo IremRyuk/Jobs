@@ -1,6 +1,7 @@
+require('dotenv').config()
 const express = require('express')
 const app = express()
-require('dotenv').config()
+const cors = require('cors')
 
 // Routes
 const jobs = require('./Routes/jobs')
@@ -19,6 +20,7 @@ mongoose.connect(process.env.MONGODB)
 
 // Routes
 app.use(express.json())
+app.use(cors())
 app.use('/jobs',jobs)
 app.use('/users',users)
 app.use('/usermenu',createJob)

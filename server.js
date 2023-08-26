@@ -7,6 +7,7 @@ const cors = require('cors')
 const jobs = require('./Routes/jobs')
 const users = require('./Routes/users')
 const createJob = require('./Routes/createJob')
+const forgetPass = require('./Routes/forgetPassword')
 
 // Database
 const mongoose = require('mongoose')
@@ -24,3 +25,4 @@ app.use(cors())
 app.use('/jobs',jobs)
 app.use('/users',users)
 app.use('/usermenu',createJob)
+app.use('/forgetpassword',forgetPass)

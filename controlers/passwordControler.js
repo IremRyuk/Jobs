@@ -36,7 +36,7 @@ const token = CreateToken(user._id)
 const link = `https://ryukjobs.netlify.app/resetpassword/${user._id}/${token}`
 console.log(link)
 nodemailere(gmail,link)
-res.json({Status:'Link Sent In Gmail',St2:true})
+res.json({Status:'Link Sent In Gmail2',St2:true})
     }
 }
 

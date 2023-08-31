@@ -44,8 +44,7 @@ const token = createToken(CreateUser._id)
 res.status(200).json({gmail,token})
     }catch(err){
         res.status(400).json({signUpErr:err.message})
-    }
-    
+    }   
 }
 
 module.exports = {logIn,signUp,AllUsers}

@@ -11,8 +11,9 @@ const nodemailers = async (gmail,link) => {
         auth:{
             user:process.env.LOGINGM,
             pass:process.env.PASSGM,
-            clientId:process.env.ClientIdGm,
-            clientSecret:process.env.ClientSecretGm
+            clientId: process.env.CLIENTIDGM,
+            clientSecret: process.env.CLIENTSECRETGM,
+            refreshToken: process.env.ClientRefresh,
         }
     })
     const info  = await transporter.sendMail({
@@ -26,3 +27,76 @@ const nodemailers = async (gmail,link) => {
     console.log(info.rejected)
 }
 module.exports = nodemailers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Test Nodemailer
+
+// const nodemailer = require('nodemailer');
+// const { google } = require('googleapis');
+// const SendMail = () => {
+// // Set up OAuth2 client
+// const oAuth2Client = new google.auth.OAuth2(
+//     process.env.ClientIdGm,
+//     process.env.ClientSecretGm,
+//     process.env.ClientRedirect
+//   );
+  
+//   // Set the access token
+//   oAuth2Client.setCredentials({
+//     access_token: process.env.ClientAcessToken,
+//   });
+  
+//   // Create the transporter using OAuth2 authentication
+//   const transporter = nodemailer.createTransport({
+//     service: 'gmail',
+//     auth: {
+//       type: 'OAuth2',
+//       user: process.env.LOGINGM,
+//       pass:process.env.PASSGM,
+//       clientId: process.env.ClientIdGm,
+//       clientSecret: process.env.ClientSecretGm,
+//       refreshToken: process.env.ClientRefresh,
+//       accessToken: oAuth2Client.getAccessToken(),
+//     },
+//   });
+  
+//   // Compose the email
+//   const mailOptions = {
+//     from: `JobsList <${process.env.LOGINGM}>`,
+//     to: 'giorgiiremadze98@gmail.com',
+//     subject: 'Reset Password',
+//     text: 'This is a test email',
+//   };
+  
+//   // Send the email
+//   transporter.sendMail(mailOptions, (error, info) => {
+//     if (error) {
+//       console.error('Error sending email:', error);
+//     } else {
+//       console.log('Email sent:', info.response);
+//     }
+//   });
+// }
+
+// module.exports = SendMail
+
+
+
+

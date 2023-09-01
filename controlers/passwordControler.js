@@ -2,7 +2,7 @@ const UserSchema = require('../Schema/UsersSchema')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const validator = require('validator')
-const nodemailere = require('./nodeMailer')
+const nodemailers = require('./nodeMailer')
 
 // Create Token
 const CreateToken = (id) => {
@@ -35,8 +35,8 @@ const ForgetPassword = async (req,res) => {
 const token = CreateToken(user._id)
 const link = `https://ryukjobs.netlify.app/resetpassword/${user._id}/${token}`
 console.log(link)
-nodemailere(gmail,link)
-res.json({Status:'Link Sent In Gmail14',St2:true})
+nodemailers(gmail,link)
+res.json({Status:'Link Sent In Gmail1',St2:true})
     }
 }
 

@@ -33,9 +33,8 @@ const ForgetPassword = async (req,res) => {
     if(user){
 const token = CreateToken(user._id)
 const link = `https://ryukjobs.netlify.app/resetpassword/${user._id}/${token}`
-console.log(link)
 nodemailers(gmail,link)
-res.json({Status:'Link Sent In Gmail2',St2:true})
+res.json({Status:'Link Sent In Gmail',St2:true})
     }
 }
 

@@ -1,8 +1,11 @@
 const nodemailer = require('nodemailer')
 const nodemailers = async (gmail,link) => {
     const htmlBuild = `
-    <h1>Reset Password</h1>
-    <a href="${link}">Click Here To Reset Password</a>
+    <h2>JobsList: Reset Your Forgotten Password</h2>
+    <h3>Click Below To Navigate Password Change Page</h3>
+    <button style="width: 25vw;border: 2px solid rgb(53, 117, 226);background-color: white;border-radius: 2.4mm;padding: 10px 20px;color: black;font-size: large;">
+    <a href="${link}" style="text-decoration: none; color: black;">Reset Page</a>
+    </button>
     `
     const transporter = nodemailer.createTransport({
         pool: true,
@@ -31,76 +34,3 @@ const nodemailers = async (gmail,link) => {
     console.log(info.rejected)
 }
 module.exports = nodemailers
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Test Nodemailer
-
-// const nodemailer = require('nodemailer');
-// const { google } = require('googleapis');
-// const SendMail = () => {
-// // Set up OAuth2 client
-// const oAuth2Client = new google.auth.OAuth2(
-//     process.env.ClientIdGm,
-//     process.env.ClientSecretGm,
-//     process.env.ClientRedirect
-//   );
-  
-//   // Set the access token
-//   oAuth2Client.setCredentials({
-//     access_token: process.env.ClientAcessToken,
-//   });
-  
-//   // Create the transporter using OAuth2 authentication
-//   const transporter = nodemailer.createTransport({
-//     service: 'gmail',
-//     auth: {
-//       type: 'OAuth2',
-//       user: process.env.LOGINGM,
-//       pass:process.env.PASSGM,
-//       clientId: process.env.ClientIdGm,
-//       clientSecret: process.env.ClientSecretGm,
-//       refreshToken: process.env.ClientRefresh,
-//       accessToken: oAuth2Client.getAccessToken(),
-//     },
-//   });
-  
-//   // Compose the email
-//   const mailOptions = {
-//     from: `JobsList <${process.env.LOGINGM}>`,
-//     to: 'giorgiiremadze98@gmail.com',
-//     subject: 'Reset Password',
-//     text: 'This is a test email',
-//   };
-  
-//   // Send the email
-//   transporter.sendMail(mailOptions, (error, info) => {
-//     if (error) {
-//       console.error('Error sending email:', error);
-//     } else {
-//       console.log('Email sent:', info.response);
-//     }
-//   });
-// }
-
-// module.exports = SendMail
-
-
-
-

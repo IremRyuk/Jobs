@@ -5,15 +5,19 @@ const nodemailers = async (gmail,link) => {
     <a href="${link}">Click Here To Reset Password</a>
     `
     const transporter = nodemailer.createTransport({
+        pool: true,
         host:'smtp.gmail.com',
         port:465,
         secure:true,
         auth:{
+            type:'login',
             user:process.env.LOGINGM,
             pass:process.env.PASSGM,
             clientId: process.env.CLIENTIDGM,
             clientSecret: process.env.CLIENTSECRETGM,
             refreshToken: process.env.ClientRefresh,
+        },tls: {
+          rejectUnauthorized: false,
         }
     })
     const info  = await transporter.sendMail({

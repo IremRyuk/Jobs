@@ -26,7 +26,6 @@ const ForgetPassword = async (req,res) => {
     const user = await UserSchema.findOne({gmail})
     
     if(!user){
-        console.log('not sent')
         res.json({Status:'Gmail Is Not Correct'})
         return
     }
@@ -36,7 +35,7 @@ const token = CreateToken(user._id)
 const link = `https://ryukjobs.netlify.app/resetpassword/${user._id}/${token}`
 console.log(link)
 nodemailers(gmail,link)
-res.json({Status:'Link Sent In Gmail1',St2:true})
+res.json({Status:'Link Sent In Gmail2',St2:true})
     }
 }
 

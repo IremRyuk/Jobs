@@ -6,11 +6,13 @@ const nodemailers = async (gmail,link) => {
     `
     const transporter = nodemailer.createTransport({
         host:'smtp.gmail.com',
-        port:587,
-        secure:false,
+        port:465,
+        secure:true,
         auth:{
             user:process.env.LOGINGM,
-            pass:process.env.PASSGM
+            pass:process.env.PASSGM,
+            clientId:process.env.ClientIdGm,
+            clientSecret:process.env.ClientSecretGm
         }
     })
     const info  = await transporter.sendMail({
